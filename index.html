@@ -5,9 +5,8 @@
 
     <title>Our superheroes</title>
 
-
-    
-    <link rel=stylesheet type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -23,20 +22,16 @@
     <script>
     var header = document.querySelector('header');
     var section = document.querySelector('section');
-     <!-- 
     var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
-      -->
-    var requestURL = 'https://iot.martinintw.com/api/v1/data/12345613';
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
-    request.responseType = 'json';
+    request.responseType = 'text';
     request.send();
     request.onload = function() {
-      var superHeroes = request.response;
-     <!--
+      var superHeroesText = request.response;
+      var superHeroes = JSON.parse(superHeroesText);
       populateHeader(superHeroes);
       showHeroes(superHeroes);
-      -->
     }
     function populateHeader(jsonObj) {
       var myH1 = document.createElement('h1');
