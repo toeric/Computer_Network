@@ -20,7 +20,7 @@
       </section>
 
     <script>
-    var header = document.querySelector('header');
+       var header = document.querySelector('header');
     var section = document.querySelector('section');
     var requestURL = 'https://toeric.github.io/Computer_Network/12345613.json';
       
@@ -36,16 +36,17 @@
     }
       
     function showdata(jsonObj) {
-      for(var i = 0; i < 10; i++) {
+      for(var i = 0; i < jsonObj.length; i++) {
         var myArticle = document.createElement('article');
-        var myH2 = document.createElement('h2');
-
-        myH2.textContent = 1;
-
-        }
-        myArticle.appendChild(myH2);
-
+        var showdata = document.createElement('h4');
+        showdata.textContent = 'id: '+jsonObj[i]['id'] + '------' + 'macaddr: '+jsonObj[i]['macaddr'] + '------'+
+                                'data: '+jsonObj[i]['data'] + '------' +'lat: '+ jsonObj[i]['lat'] + '------'+
+                                'lng: '+jsonObj[i]['lng'] + '------' +'created_at: '+ jsonObj[i]['created_at'] + '------'+
+                                'updated_at: '+ jsonObj[i]['updated_at'];
+        myArticle.appendChild(showdata);
         section.appendChild(myArticle);
+        }
+
       
     }
     </script>
